@@ -7,15 +7,26 @@ import 'package:flutter/material.dart';
 
 class ChallengePage extends StatefulWidget {
   final List<QuestionModel> questions;
-  ChallengePage({Key? key, required this.questions}) : super(key: key);
+
+  ChallengePage({
+    Key? key,
+    required this.questions,
+  }) : super(key: key);
 
   @override
   _ChallengePageState createState() => _ChallengePageState();
+
+  noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
 class _ChallengePageState extends State<ChallengePage> {
   final controller = ChallengeController();
   final pageController = PageController();
+
+  void nextPage() {
+    pageController.nextPage(
+        duration: Duration(milliseconds: 500), curve: Curves.decelerate);
+  }
 
   @override
   void initState() {
@@ -50,8 +61,12 @@ class _ChallengePageState extends State<ChallengePage> {
       body: PageView(
           physics: NeverScrollableScrollPhysics(),
           controller: pageController,
-          children:
-              widget.questions.map((e) => QuizWidget(question: e)).toList()),
+          children: widget.questions
+              .map((e) => QuizWidget(
+                    question: e,
+                    onChange: nextPage,
+                  ))
+              .toList()),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -61,20 +76,16 @@ class _ChallengePageState extends State<ChallengePage> {
               Expanded(
                   child: NextButtonWidget.white(
                 label: "Pular",
-                onTap: () {
-                  pageController.nextPage(
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.decelerate);
-                },
+                onTap: nextPage,
               )),
-              SizedBox(
-                width: 7,
-              ),
-              Expanded(
-                  child: NextButtonWidget.green(
-                label: "Confirmar",
-                onTap: () {},
-              )),
+              // SizedBox(
+              //   width: 7,
+              // ),
+              // Expanded(
+              //     child: NextButtonWidget.green(
+              //   label: "Confirmar",
+              //   onTap: () {},
+              // )),
             ],
           ),
         ),

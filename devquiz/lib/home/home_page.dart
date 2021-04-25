@@ -8,6 +8,8 @@ import 'package:DevQuiz/home/widgets/quiz_card/quiz_card_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// TODO: Receber o level do QuizCard e filtar com os botões LevelButtonWidget
+
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
   @override
@@ -55,15 +57,19 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   LevelButtonWidget(
                     label: "Fácil",
+                    quizzers: controller.quizzes!,
                   ),
                   LevelButtonWidget(
                     label: "Médio",
+                    quizzers: controller.quizzes!,
                   ),
                   LevelButtonWidget(
                     label: "Difícil",
+                    quizzers: controller.quizzes!,
                   ),
                   LevelButtonWidget(
                     label: "Perito",
+                    quizzers: controller.quizzes!,
                   ),
                 ],
               ),
@@ -78,6 +84,7 @@ class _HomePageState extends State<HomePage> {
                   children: controller.quizzes!
                       .map((e) => QuizCardWidget(
                             title: e.title,
+                            level: e.level,
                             progress:
                                 "${e.questionAnswered}/${e.questions.length}",
                             image: e.image,

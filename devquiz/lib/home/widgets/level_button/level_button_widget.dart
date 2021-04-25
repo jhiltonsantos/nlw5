@@ -1,12 +1,17 @@
+import 'package:DevQuiz/challenge/challenge_page.dart';
 import 'package:DevQuiz/core/core.dart';
+import 'package:DevQuiz/shared/models/quiz_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LevelButtonWidget extends StatelessWidget {
   final String label;
+  final List<QuizModel> quizzers;
+
   LevelButtonWidget({
     Key? key,
     required this.label,
+    required this.quizzers,
   })   : assert(["Fácil", "Médio", "Difícil", "Perito"].contains(label)),
         super(key: key);
 
@@ -46,12 +51,26 @@ class LevelButtonWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(28),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 6),
-        child: Text(
-          label,
-          style: GoogleFonts.notoSans(color: fontColor, fontSize: 11),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: TextButton(
+          child: Text(
+            label,
+            style: GoogleFonts.notoSans(color: fontColor, fontSize: 12),
+          ),
+          onPressed: () {
+            // TODO: Receber todos os quiz na List<QuizModel>
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => ChallengePage(
+            //               questions: [],
+            //               title: 'Fácil',
+            //             )));
+          },
         ),
       ),
     );
   }
 }
+
+// GoogleFonts.notoSans(color: fontColor, fontSize: 11)

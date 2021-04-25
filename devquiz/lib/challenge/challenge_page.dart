@@ -97,15 +97,16 @@ class _ChallengePageState extends State<ChallengePage> {
                       child: NextButtonWidget.green(
                     label: "Confirmar",
                     onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ResultPage(
-                                    title: widget.title,
-                                    numCorrectAnwsers:
-                                        controller.numCorrectAnswers,
-                                    lengthQuiz: widget.questions.length,
-                                  )));
+                      Future.delayed(Duration(milliseconds: 400))
+                          .then((_) => Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ResultPage(
+                                        title: widget.title,
+                                        numCorrectAnwsers:
+                                            controller.numCorrectAnswers,
+                                        lengthQuiz: widget.questions.length,
+                                      ))));
                     },
                   )),
               ],
@@ -116,3 +117,6 @@ class _ChallengePageState extends State<ChallengePage> {
     );
   }
 }
+
+// TODO: (BUG) ADICIONAR UM FUTURE.DELAYED NO NAVIGATOR PUSH DO CONFIRMAR PARA
+// RECEBER O VALOR DAS RESPOSTAS CERTAS

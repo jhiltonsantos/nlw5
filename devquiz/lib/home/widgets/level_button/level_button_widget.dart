@@ -1,5 +1,6 @@
 import 'package:DevQuiz/challenge/challenge_page.dart';
 import 'package:DevQuiz/core/core.dart';
+import 'package:DevQuiz/home/widgets/quiz_card/quiz_card_widget.dart';
 import 'package:DevQuiz/shared/models/quiz_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

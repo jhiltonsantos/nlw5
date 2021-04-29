@@ -8,7 +8,7 @@ import 'package:DevQuiz/home/widgets/quiz_card/quiz_card_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-// TODO: Receber o level do QuizCard e filtar com os botões LevelButtonWidget
+// TODO: [done] Receber o level do QuizCard e filtar com os botões LevelButtonWidget
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);

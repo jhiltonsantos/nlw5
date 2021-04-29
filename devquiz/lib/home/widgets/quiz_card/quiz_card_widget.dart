@@ -5,7 +5,7 @@ import 'package:DevQuiz/core/app_colors.dart';
 import 'package:DevQuiz/core/core.dart';
 import 'package:DevQuiz/shared/widgets/progress_indicator/progress_indicator_widget.dart';
 
-// TODO: Adicionar level ao QuizCard
+// TODO: [done] Adicionar level ao QuizCard
 
 class QuizCardWidget extends StatelessWidget {
   final String title;
